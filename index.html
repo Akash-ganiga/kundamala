@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ಕುಂದಮಾಲಾ - Kundapura Kannada Dictionary</title>
+   <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <style>
+.explore-prompt {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+  font-size: 18px;
+  color: #0066cc;
+  padding: 8px 12px;
+  border-radius: 6px;
+  transition: all 0.3s ease;
+  font-weight: 500;
+}
+
+.explore-prompt:hover {
+  color: #0066cc;
+  transform: translateY(-2px);
+}
+
+.explore-prompt svg {
+  transition: transform 0.3s ease;
+}
+
+.explore-prompt:hover svg {
+  transform: scale(1.1);
+  stroke: #0066cc;
+}
+
+
+.explore-prompt {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+  font-size: 18px;
+  color: white;
+  padding: 8px 0;
+  font-weight: 500;
+  border-bottom: 1px dashed #999;
+  transition: all 0.3s ease;
+}
+
+.explore-prompt:hover {
+  color:#0066cc;
+  border-bottom-color: #0066cc;
+}
+
+.a1{
+  display:none;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+  font-size: 18px;
+  color: #0066cc;
+  padding: 8px 12px;
+  border-radius: 6px;
+  transition: all 0.3s ease;
+  font-weight: 500;
+}
+
+.a1:hover {
+  color: #0066cc;
+  transform: translateY(-2px);
+}
+
+.a1 svg {
+  transition: transform 0.3s ease;
+}
+
+.a1:hover svg {
+  transform: scale(1.1);
+  stroke: #0066cc;
+}
+
+
+a .a1{
+  display: none;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+  font-size: 18px;
+  color: white;
+  padding: 8px 0;
+  font-weight: 500;
+  border-bottom: 1px dashed #999;
+  transition: all 0.3s ease;
+}
+
+.a1:hover {
+  color:#0066cc;
+  border-bottom-color: #0066cc;
+}
+
+</style>
+
+</head>
+<body>
+
+    <header>
+        <div class="a">ಕುಂದಮಾಲಾ</div>
+        <nav>
+            <ul>
+               
+               <a href="{{ url_for('home_page') }}" class="explore-prompt">
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="12" cy="12" r="10"></circle>
+    <line x1="12" y1="8" x2="12" y2="16"></line>
+    <line x1="8" y1="12" x2="16" y2="12"></line>
+  </svg>
+  Click the  images to explore
+</a>
+
+            </ul>
+        </nav>
+    </header>
+
+    <div class="slider">
+
+        <div class="list">
+            <div class="item" >
+                <a href="{{ url_for('home_page') }}"><img src="{{ url_for('static', filename='images/kambala.jpg') }}" alt="Logo"></a>
+            </div>
+            <div class="item active">
+                <a href="{{ url_for('h_page') }}"><img src="{{ url_for('static', filename='images/kunda.png') }}"></a>
+            </div>
+            <div class="item">
+                <img src="{{ url_for('static', filename='images/koli.webp') }}">
+            </div>
+            <div class="item">
+                <img src="{{ url_for('static', filename='images/marvnthe.png') }}">
+            </div>
+            
+        </div>
+        <div class="circle">
+            Kundapura Kannada Dictionary
+        </div>
+        <div class="content">
+            <div></div>
+            <div>ಕುಂದಮಾಲಾ</div>
+            <!-- Button to be shown only on smaller screens -->
+            <div class="a">
+       <a href="{{ url_for('home_page') }}" class="a1">
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="12" cy="12" r="10"></circle>
+    <line x1="12" y1="8" x2="12" y2="16"></line>
+    <line x1="8" y1="12" x2="16" y2="12"></line>
+  </svg>
+  Click the  images to explore
+</a>
+</div> 
+        </div>
+       
+        <div class="arow">
+            <button id="prev"><</button>
+            <button id="next">></button>
+        </div>
+    </div>
+
+
+   <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+</body>
+</html>

@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ಕುಂದಮಾಲಾ - Kundapura Kannada Dictionary</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <style>
+    /* Custom scrollbar */
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #f1f1f1;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #4f46e5;
+      border-radius: 4px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #4338ca;
+    }
+
+    /* Animations */
+    @keyframes float {
+      0% { transform: translateY(0px); }
+      50% { transform: translateY(-10px); }
+      100% { transform: translateY(0px); }
+    }
+    
+    .floating {
+      animation: float 6s ease-in-out infinite;
+    }
+    
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+      100% { transform: scale(1); }
+    }
+    
+    .pulse {
+      animation: pulse 2s infinite;
+    }
+    
+    /* Gradient text */
+    .gradient-text {
+      background: linear-gradient(90deg, #4f46e5, #9333ea);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+    
+    /* Feature cards */
+    .feature-card {
+      transition: all 0.3s ease;
+      border: 1px solid #e5e7eb;
+      border-radius: 12px;
+      overflow: hidden;
+    }
+    
+    .feature-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+      border-color: #4f46e5;
+    }
+    
+    /* How-to steps */
+    .step-number {
+      width: 36px;
+      height: 36px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      font-weight: bold;
+      margin-right: 16px;
+      flex-shrink: 0;
+    }
+  </style>
+</head>
+<body class="font-sans bg-gray-50 text-gray-800">
+
+  <!-- Navigation -->
+  <nav class="bg-white shadow-sm py-4 px-6 sticky top-0 z-50">
+    <div class="max-w-6xl mx-auto flex justify-between items-center">
+      <div class="flex items-center">
+        
+        <span class="text-xl font-bold gradient-text">ಕುಂದಮಾಲಾ</span>
+      </div>
+      <div class="hidden md:flex space-x-8">
+        <a href="{{ url_for('index') }}" class="font-medium hover:text-indigo-600 transition">Home</a>
+        <a href="#features" class="font-medium hover:text-indigo-600 transition">Features</a>
+        <a href="#how-it-works" class="font-medium hover:text-indigo-600 transition">How It Works</a>
+        <a href="#testimonials" class="font-medium hover:text-indigo-600 transition">About us</a>
+        
+      </div>
+      <div>
+        <a href="{{ url_for('h_page') }}" class="bg-indigo-600 hover:bg-indigo-700 text-white px-5 py-2 rounded-full font-medium transition">Try Now</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="relative overflow-hidden">
+    <div class="max-w-7xl mx-auto px-6 py-20 md:py-32 flex flex-col md:flex-row items-center">
+      <div class="md:w-1/2 z-10">
+        <p class="text-indigo-600 font-medium mb-3">April 18, 2025 · Dictionary Tool</p>
+        <h1 class="text-4xl md:text-5xl font-bold mb-6 leading-tight">
+          Discover the Richness of <span class="gradient-text">Kundapura Kannada</span>
+        </h1>
+        <p class="text-lg text-gray-600 mb-8 max-w-lg">
+          Our advanced dictionary bridges the gap between regional dialects and standard Kannada, 
+          helping you understand and preserve this unique linguistic heritage.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4">
+          <a href="{{ url_for('h_page') }}" class="bg-indigo-600 hover:bg-indigo-700 text-white px-6 py-3 rounded-full font-medium text-center transition pulse">
+            Explore Dictionary <i class="fas fa-arrow-right ml-2"></i>
+          </a>
+          <a href="#features" class="border border-gray-300 hover:border-indigo-400 text-gray-700 hover:text-indigo-600 px-6 py-3 rounded-full font-medium text-center transition">
+            Learn More
+          </a>
+        </div>
+      </div>
+      <div class="md:w-1/2 mt-12 md:mt-0 relative">
+        <div class="floating">
+          <div class="relative">
+            <div class="absolute -top-10 -left-10 w-64 h-64 bg-indigo-100 rounded-full mix-blend-multiply filter blur-xl opacity-70"></div>
+            <div class="absolute -bottom-10 -right-10 w-64 h-64 bg-purple-100 rounded-full mix-blend-multiply filter blur-xl opacity-70"></div>
+          </div>
+          <img src="https://illustrations.popsy.co/amber/digital-nomad.svg" alt="Dictionary illustration" class="relative z-10 w-full max-w-lg mx-auto">
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- Features -->
+  <section id="features" class="py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl font-bold mb-4">Powerful Features for Language Exploration</h2>
+        <p class="text-gray-600 max-w-2xl mx-auto">
+          Our dictionary offers innovative tools to make learning and translating Kundapura Kannada effortless
+        </p>
+      </div>
+      
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div class="feature-card bg-white p-8">
+          <div class="text-indigo-600 text-3xl mb-4">
+            <i class="fas fa-exchange-alt"></i>
+          </div>
+          <h3 class="text-xl font-bold mb-3">Comprehensive Translations</h3>
+          <p class="text-gray-600">
+            Seamlessly translate between Kundapura dialect, standard Kannada, and English with our extensive database.
+          </p>
+        </div>
+        
+        <div class="feature-card bg-white p-8">
+          <div class="text-indigo-600 text-3xl mb-4">
+            <i class="fas fa-microphone"></i>
+          </div>
+          <h3 class="text-xl font-bold mb-3">Voice Search</h3>
+          <p class="text-gray-600">
+            Speak naturally and find words instantly with our advanced voice recognition technology.
+          </p>
+        </div>
+        
+        <div class="feature-card bg-white p-8">
+          <div class="text-indigo-600 text-3xl mb-4">
+            <i class="fas fa-history"></i>
+          </div>
+          <h3 class="text-xl font-bold mb-3">Similar Words</h3>
+          <p class="text-gray-600">
+            Discover similar word suggestions instantly to explore related meanings and expand your vocabulary.
+
+          </p>
+        </div>
+        
+        <div class="feature-card bg-white p-8">
+          <div class="text-indigo-600 text-3xl mb-4">
+            <i class="fas fa-book"></i>
+          </div>
+          <h3 class="text-xl font-bold mb-3">Word Collections</h3>
+          <p class="text-gray-600">
+            Create and organize custom word lists for study, research, or personal reference.
+          </p>
+        </div>
+        
+        <div class="feature-card bg-white p-8">
+          <div class="text-indigo-600 text-3xl mb-4">
+            <i class="fas fa-users"></i>
+          </div>
+          <h3 class="text-xl font-bold mb-3">Community Contributions</h3>
+          <p class="text-gray-600">
+            Help improve the dictionary by suggesting new words or corrections to existing entries.
+          </p>
+        </div>
+        
+        <div class="feature-card bg-white p-8">
+          <div class="text-indigo-600 text-3xl mb-4">
+            <i class="fas fa-mobile-alt"></i>
+          </div>
+          <h3 class="text-xl font-bold mb-3">Mobile Optimized</h3>
+          <p class="text-gray-600">
+            Full functionality on any device with a clean, intuitive interface designed for all users.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- How It Works -->
+  <section id="how-it-works" class="py-20 bg-gray-50">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl font-bold mb-4">How To Use The Dictionary</h2>
+        <p class="text-gray-600 max-w-2xl mx-auto">
+          Get started in minutes with our simple, intuitive interface
+        </p>
+      </div>
+      
+      <div class="max-w-4xl mx-auto">
+        <div class="flex items-start mb-12">
+          <div class="step-number bg-indigo-100 text-indigo-600">1</div>
+          <div>
+            <h3 class="text-xl font-bold mb-2">Search For Words</h3>
+            <p class="text-gray-600">
+              Enter any word in the search bar. Our system recognizes Kundapura dialect, standard Kannada, 
+              and English terms. Use voice input for hands-free searching.
+            </p>
+          </div>
+        </div>
+        
+        <div class="flex items-start mb-12">
+          <div class="step-number bg-indigo-100 text-indigo-600">2</div>
+          <div>
+            <h3 class="text-xl font-bold mb-2">Explore Results</h3>
+            <p class="text-gray-600">
+              View comprehensive definitions, usage examples, synonyms, and related terms. 
+              Each entry includes pronunciation guides and regional variations.
+            </p>
+          </div>
+        </div>
+        
+        <div class="flex items-start mb-12">
+          <div class="step-number bg-indigo-100 text-indigo-600">3</div>
+          <div>
+            <h3 class="text-xl font-bold mb-2">Similar Words</h3>
+            <p class="text-gray-600">
+              Discover similar word suggestions instantly to explore related meanings and expand your vocabulary.
+            </p>
+          </div>
+        </div>
+        
+        <div class="flex items-start">
+          <div class="step-number bg-indigo-100 text-indigo-600">4</div>
+          <div>
+            <h3 class="text-xl font-bold mb-2">Contribute Knowledge</h3>
+            <p class="text-gray-600">
+              Help improve the dictionary by suggesting new words or corrections. Our team reviews all 
+              submissions to maintain accuracy.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials -->
+  <section id="testimonials" class="py-20 bg-white">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="text-center mb-16">
+      <h2 class="text-3xl font-bold mb-4">What We Stand For</h2>
+      <p class="text-gray-600 max-w-2xl mx-auto">
+        Hear directly from us — the creators — about our mission to preserve and promote the Kundapura Kannada language through this dictionary.
+      </p>
+    </div>
+
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <!-- Akash -->
+      <div class="bg-gray-50 p-8 rounded-xl">
+        <div class="flex items-center mb-4">
+          <img src="https://randomuser.me/api/portraits/men/75.jpg" alt="Akash" class="w-12 h-12 rounded-full mr-4">
+          <div>
+            <h4 class="font-bold">Akash</h4>
+            <p class="text-gray-500 text-sm">Student Developer</p>
+          </div>
+        </div>
+        <p class="text-gray-700 italic">
+          "Our goal is to bridge the gap between generations by making Kundapura Kannada accessible through voice search and digital innovation."
+        </p>
+        <div class="flex mt-4 text-yellow-400">
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+        </div>
+      </div>
+
+      <!-- Aishwarya -->
+      <div class="bg-gray-50 p-8 rounded-xl">
+        <div class="flex items-center mb-4">
+          <img src="https://randomuser.me/api/portraits/women/21.jpg" alt="Aishwarya" class="w-12 h-12 rounded-full mr-4">
+          <div>
+            <h4 class="font-bold">Aishwarya</h4>
+            <p class="text-gray-500 text-sm">Student Developer</p>
+          </div>
+        </div>
+        <p class="text-gray-700 italic">
+          "We believe language is identity. This project is our way of preserving the dialect our grandparents speak, and helping others learn it too."
+        </p>
+        <div class="flex mt-4 text-yellow-400">
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+        </div>
+      </div>
+
+      <!-- Rakshitha -->
+      <div class="bg-gray-50 p-8 rounded-xl">
+        <div class="flex items-center mb-4">
+          <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Rakshitha" class="w-12 h-12 rounded-full mr-4">
+          <div>
+            <h4 class="font-bold">Rakshitha</h4>
+            <p class="text-gray-500 text-sm">Student Developer</p>
+          </div>
+        </div>
+        <p class="text-gray-700 italic">
+          "We created this dictionary with love and care for our culture. Every word added is a step toward keeping our language alive for the next generation."
+        </p>
+        <div class="flex mt-4 text-yellow-400">
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+  <!-- CTA Section -->
+  <section class="py-20 bg-gradient-to-r from-indigo-600 to-purple-600 text-white">
+    <div class="max-w-7xl mx-auto px-6 text-center">
+      <h2 class="text-3xl font-bold mb-6">Ready to explore Kundapura Kannada?</h2>
+      <p class="text-xl mb-8 max-w-2xl mx-auto">
+        Join thousands of users who are preserving and learning this beautiful dialect
+      </p>
+      <div class="flex flex-col sm:flex-row justify-center gap-4">
+        <a href="{{ url_for('h_page') }}" class="bg-white hover:bg-gray-100 text-indigo-600 px-8 py-4 rounded-full font-bold text-lg transition">
+          Start Exploring Now <i class="fas fa-arrow-right ml-2"></i>
+        </a>
+        <a href="{{ url_for('h_page') }}" class="border-2 border-white hover:bg-white hover:bg-opacity-10 px-8 py-4 rounded-full font-bold text-lg transition">
+          Learn More
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-gray-900 text-gray-400 py-12">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="grid md:grid-cols-4 gap-8 mb-8">
+        <div>
+          <div class="flex items-center mb-4">
+          
+            <span class="text-xl font-bold text-white">ಕುಂದಮಾಲಾ</span>
+          </div>
+          <p class="mb-4">
+            Preserving the linguistic heritage of Kundapura region through technology and community.
+          </p>
+          <div class="flex space-x-4 text-xl">
+            <a href="#" class="hover:text-white transition"><i class="fab fa-twitter"></i></a>
+            <a href="#" class="hover:text-white transition"><i class="fab fa-facebook"></i></a>
+            <a href="#" class="hover:text-white transition"><i class="fab fa-instagram"></i></a>
+            <a href="#" class="hover:text-white transition"><i class="fab fa-youtube"></i></a>
+          </div>
+        </div>
+        
+        <div>
+          <h4 class="text-white font-bold mb-4">Dictionary</h4>
+          <ul class="space-y-2">
+            <li><a href="{{ url_for('h_page') }}" class="hover:text-white transition">Search</a></li>
+            <li><a href="{{ url_for('h_page') }}" class="hover:text-white transition">Browse</a></li>
+            <li><a href="{{ url_for('h_page') }}" class="hover:text-white transition">Word Collections</a></li>
+            <li><a href="{{ url_for('h_page') }}" class="hover:text-white transition">Contribute</a></li>
+          </ul>
+        </div>
+        
+        <div>
+          <h4 class="text-white font-bold mb-4">Resources</h4>
+          <ul class="space-y-2">
+           <li><a href="{{ url_for('static', filename='files/Kundamala.pdf') }}" download class="hover:text-white transition">Blog</a></li>
+            <li><a href="#how-it-works" class="hover:text-white transition">Learning Guides</a></li>
+            <li><a href="{{ url_for('static', filename='files/FAQ.pdf') }}" download class="hover:text-white transition">FAQ</a></li>
+           
+          </ul>
+        </div>
+        
+        <div>
+          <h4 class="text-white font-bold mb-4">Company</h4>
+          <ul class="space-y-2">
+            <li><a href="#testimonials" class="hover:text-white transition">About Us</a></li>
+            <li><a href="#testimonials" class="hover:text-white transition">Our Team</a></li>
+            <li><a href="{{ url_for('h_page') }}" class="hover:text-white transition">Contact</a></li>
+            
+          </ul>
+        </div>
+      </div>
+      
+      <div class="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center">
+        <p>&copy; 2025 Kundamala Dictionary. All rights reserved.</p>
+        
+      </div>
+    </div>
+  </footer>
+
+  <!-- Back to Top Button -->
+  <button id="back-to-top" class="fixed bottom-6 right-6 bg-indigo-600 text-white w-12 h-12 rounded-full flex items-center justify-center shadow-lg hover:bg-indigo-700 transition hidden">
+    <i class="fas fa-arrow-up"></i>
+  </button>
+
+  <script>
+    // Back to top button
+    const backToTopButton = document.getElementById('back-to-top');
+    
+    window.addEventListener('scroll', () => {
+      if (window.pageYOffset > 300) {
+        backToTopButton.classList.remove('hidden');
+      } else {
+        backToTopButton.classList.add('hidden');
+      }
+    });
+    
+    backToTopButton.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+    
+    // Mobile menu toggle would go here
+    // Currently using Tailwind's responsive classes to show/hide navigation
+    
+    // Smooth scrolling for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        
+        const targetId = this.getAttribute('href');
+        if (targetId === '#') return;
+        
+        const targetElement = document.querySelector(targetId);
+        if (targetElement) {
+          targetElement.scrollIntoView({
+            behavior: 'smooth'
+          });
+        }
+      });
+    });
+  </script>
+</body>
+</html>
