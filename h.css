@@ -1,0 +1,338 @@
+/* Full page setup */
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #212121;
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+}
+
+/* Main Chat Container */
+.chat-container {
+    width: 90%; /* Slightly increased width */
+    max-width: 700px; /* Increased max width */
+    background-color: #212121;
+    border-radius: 20px;
+    padding: 20px;
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 80vh;
+    position: relative;
+    overflow: hidden;
+    top: 5%;
+   
+    
+}
+
+/* Result Container */
+.result-container {
+    flex: 1;
+    padding: 20px;
+    overflow-y: auto;
+    max-height: calc(100% - 80px); /* Dynamic height to prevent cut-off */
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+}
+
+
+
+/* User Message Style */
+.user-message {
+    background-color: #3C3F44;
+    color: white;
+    align-self: flex-end;
+    border-radius: 15px 15px 0 15px;
+    padding: 12px 15px;
+    margin: 5px 0;
+    max-width: 70%;
+    text-align: left;
+}
+
+/* System Message Style */
+.system-message {
+    
+    color: #E8E8E8;
+    align-self: flex-start;
+    border-radius: 15px 15px 15px 0;
+    padding: 12px 15px;
+    margin: 5px 0;
+    max-width: 70%;
+    text-align: left;
+}
+/* Search Section */
+.search-section {
+    width: 100%;
+    padding-top: 15px;
+    text-align: center;
+    border-top: 1px solid #3F4247;
+    box-sizing: border-box;
+}
+
+/* Search Box */
+.search-box {
+    display: flex; /* Use flex to keep it in one line */
+    align-items: center;
+    background: #3C3F44;
+    border-radius: 30px;
+    padding: 18px 20px;
+    
+    width: 100%;
+    max-width: 100%; /* Prevent overflow */
+    
+    box-sizing: border-box;
+}
+
+/* Input Field */
+.search-box input {
+    border: none;
+    outline: none;
+    background: transparent;
+    color: #E8E8E8;
+    padding: 12px;
+    font-size: 18px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* Icon Styling */
+.search-box .icon {
+    margin-left: 12px;
+    cursor: pointer;
+    color: #B2B2B2;
+    font-size: 20px;
+    transition: transform 0.3s ease;
+}
+
+/* Align input and search box properly */
+.search-section, .result-container {
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+}
+
+/* Hover Effect */
+.search-box .icon:hover {
+    color: #10A37F;
+    transform: scale(1.1);
+}
+
+/* Loading Spinner Effect */
+.fa-spinner {
+    color: #10A37F;
+    animation: spin 1s linear infinite;
+}
+
+/* Spinner Animation */
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+        color: #10A37F
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+
+/* Hidden Class */
+.hidden {
+    display: none;
+}
+
+/* Scrollbar Styling */
+.result-container::-webkit-scrollbar {
+    width: 8px;
+}
+
+.result-container::-webkit-scrollbar-thumb {
+    background-color: #10A37F;
+    border-radius: 10px;
+}
+/* Bot Name Watermark Initially */
+#botNameWatermark {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 50px;
+    font-weight: bold;
+    color: rgba(255, 255, 255, 0.08); /* Light watermark effect */
+    pointer-events: none; /* Prevent interaction */
+    z-index: 0; /* Behind results */
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+.dim-watermark {
+    color: rgba(255, 255, 255, 0.08); /* Faint after greeting */
+    border-color: rgba(255, 255, 255, 0.08); /* Dim border after results */
+}
+/* Watermark fades to background after results */
+.watermark-background {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 50px;
+    font-weight: bold;
+    color: rgba(255, 255, 255, 0.05);
+    pointer-events: none;
+    z-index: 0;
+}
+
+
+
+header{
+    height: 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px 50px;
+    box-sizing: border-box;
+    position: relative;
+    z-index: 10;
+}
+header nav ul{
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    display: flex;
+    gap: 100px;
+}
+header {
+    position: fixed; /* Fixes it to the top */
+    width: 100%; /* Ensures it stretches across the screen */
+    top: 0;
+    left: 0;
+    z-index: 1000; /* Keeps it above all content */
+    background-color:transparent; /* Slight transparency */
+    padding: 15px 50px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+  }
+  
+  header div {
+    font-family: 'Kannada Sangam MN', Arial, sans-serif;
+    font-size: 24px;
+    font-weight: bold;
+    color:white;
+    padding: 8px 15px;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  
+  /* Hover effect */
+  header div:hover {
+    color: #4285f4;
+    transform: translateY(-2px);
+  }
+  
+  /* Optional: Add a background glow effect on hover */
+  header div:hover::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, rgba(244, 66, 66, 0.1) 0%, rgba(255, 255, 255, 0) 70%);
+    z-index: -1;
+  }
+  
+  nav ul {
+    color:white;
+    display: flex;
+    list-style: none;
+    gap: 25px; /* Reduced gap to accommodate more items */
+  }
+  
+  nav ul li a {
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    color: #555;
+    cursor: pointer;
+    position: relative;
+    padding: 5px 0;
+    transition: color 0.3s ease;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+  }
+  
+  /* Icon styling */
+  nav ul li a i {
+    margin-right: 8px;
+    font-size: 16px;
+  }
+  
+  /* Hover effect with underline animation */
+  nav ul li a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: #4285f4;
+    transition: width 0.3s ease;
+  }
+  
+  nav ul li a:hover {
+    color: #4285f4;
+  }
+  
+  nav ul li a:hover::after {
+    width: 100%;
+  }
+  header nav ul li a {
+    text-decoration: none;
+    color: inherit;
+    right: 10px;
+   
+}
+html {
+    scroll-behavior: smooth;
+}
+ @media (max-width: 768px) {
+ header div {
+    font-family: 'Kannada Sangam MN', Arial, sans-serif;
+    display: none;
+  }
+    nav ul li a i {
+    font-size: 8px;
+  
+    width: max-content;
+
+  }
+  nav ul {
+    color:white;
+    display: flex;
+    list-style: none;
+    gap: none;
+  }
+  header nav ul li a {
+    text-decoration: none;
+    color: inherit;
+    right: 13px;
+   
+}
+header nav ul{
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    display: flex;
+    gap: 60px;
+}
+}

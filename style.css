@@ -1,0 +1,416 @@
+ body {
+    margin: 0;
+    font-family: Poppins;
+    scroll-behavior: smooth;
+}
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+header{
+    height: 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px 50px;
+    box-sizing: border-box;
+    position: relative;
+    z-index: 10;
+}
+header nav ul{
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    display: flex;
+    gap: 100px;
+}
+:root{
+    --width-circle: 150vw;
+    --radius: calc(100vw / 6);
+}
+.slider{
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden; 
+    position: relative;
+    background-color:black;
+    background-image: radial-gradient(#fff3, transparent 50%);
+   
+}
+.slider .list{
+    position: absolute;
+    width: max-content;
+    height: 100%;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    transition: transform 0.8s;
+    
+}
+.slider .list .item{
+    width: calc(var(--radius) * 2);
+    text-align: center;
+    transform: rotate(45deg);
+    transition: transform 1s;
+}
+.slider .list .item.active{
+    transform: rotate(0deg);
+}
+.slider .list .item img{
+    width: 80%;
+    filter: drop-shadow(0 0 20px #000);
+}
+.slider .list .item1 img{
+    width: 80%;
+    display: none;
+    filter: drop-shadow(0 0 20px #000);
+}
+.slider .content{
+    position: absolute;
+    bottom: 5%;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    color: #eee;
+    width: max-content;
+}
+.slider .content div:nth-child(2){
+    font-size: 5rem;
+    text-transform: uppercase;
+    letter-spacing: 10px;
+    font-weight: bold;
+    position: relative;
+}
+.slider .content div:nth-child(2)::before{
+    position: absolute;
+    left: 55%;
+    bottom: 61%;
+    width: 100px;
+    height: 80px;
+    content: '';
+    background-image: url('../images/coc.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.slider .content div:nth-child(1){
+    text-align: left;
+    text-transform: uppercase;
+    transform: translateY(20px);
+}
+.slider .content button{
+    border: 1px solid #eee5;
+    background: transparent;
+    color: #eee;
+    font-family: Poppins;
+    letter-spacing: 5px;
+    border-radius: 20px;
+    padding: 10px 20px;
+}
+#prev,
+#next{
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: transparent;
+    border: 1px solid #eee9;
+    background-color: #eee5;
+    color: #eee;
+    font-size: x-large;
+    font-family: monospace;
+    cursor: pointer;
+    z-index: 15;
+}
+#prev{
+    left: 20px;
+}
+#next{
+    right: 20px;
+}
+
+/* //circle */
+
+.circle{
+    pointer-events: none;
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    width: 100%;
+    height: 100%;
+    -webkit-mask: radial-gradient(var(--radius), transparent 100%, #000);
+    mask: radial-gradient(var(--radius), #0000 98%, #000);
+    backdrop-filter: blur(10px);
+    background: radial-gradient( 
+        calc(var(--radius) + 1px), #eee5 100%, #eee2
+    );
+    
+}
+.circle span{
+    display: block;
+    position: absolute;
+    height: calc(var(--radius) * 2 + 50px);
+    top: 50%;
+    left: 50%;
+    --rotate: 50deg;
+    transform: translate(-50%, -50%) rotate(var(--rotate));
+    text-transform: uppercase;
+    color: #ffffff;
+    font-size: medium;
+    animation: circleRotate 20s linear infinite;
+}
+@keyframes circleRotate{
+    to{
+        transform: translate(-50%, -50%) rotate(calc(var(--rotate) + 360deg));
+    }
+    0%{
+        color:rgb(255, 255, 255);
+        font-weight: 500px;
+    }
+    50%{
+        color: rgb(128, 0, 90);
+    }
+
+}
+header {
+    position: fixed; /* Fixes it to the top */
+    width: 100%; /* Ensures it stretches across the screen */
+    top: 0;
+    left: 0;
+    z-index: 1000; /* Keeps it above all content */
+    background-color:transparent; /* Slight transparency */
+    padding: 15px 50px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+  }
+  
+  header div {
+    font-family: 'Kannada Sangam MN', Arial, sans-serif;
+    font-size: 24px;
+    font-weight: bold;
+    color:white;
+    padding: 8px 15px;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  
+  /* Hover effect */
+  header div:hover {
+    color: #4285f4;
+    transform: translateY(-2px);
+  }
+  
+  /* Optional: Add a background glow effect on hover */
+  header div:hover::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, rgba(244, 66, 66, 0.1) 0%, rgba(255, 255, 255, 0) 70%);
+    z-index: -1;
+  }
+  
+  nav ul {
+    color: wheat;
+    display: flex;
+    list-style: none;
+    gap: 25px; /* Reduced gap to accommodate more items */
+  }
+  
+  nav ul li a {
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    color: #555;
+    cursor: pointer;
+    position: relative;
+    padding: 5px 0;
+    transition: color 0.3s ease;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+  }
+  
+  /* Icon styling */
+  nav ul li a i {
+    margin-right: 8px;
+    font-size: 16px;
+  }
+  
+  /* Hover effect with underline animation */
+  nav ul li a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: #4285f4;
+    transition: width 0.3s ease;
+  }
+  
+  nav ul li a:hover {
+    color: #4285f4;
+  }
+  
+  nav ul li a:hover::after {
+    width: 100%;
+  }
+  
+
+  /* For smaller screens */
+  @media (max-width: 768px) {
+    header {
+      padding: 15px 20px;
+    }
+    
+    nav ul {
+      gap: 15px;
+    }
+    
+    nav ul li {
+      font-size: 14px;
+    }
+    
+    nav ul li i {
+      font-size: 14px;
+    }
+  }
+header nav ul li a {
+    text-decoration: none;
+    color: inherit;
+}
+html {
+    scroll-behavior: smooth;
+}
+
+@keyframes text {
+  0%   { color:white; }
+ 
+  100% { color:black; }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    :root {
+        --radius: calc(100vw / 3);
+    }
+    
+    .slider .content div:nth-child(2) {
+        font-size: 2.5rem;
+        letter-spacing: 5px;
+    }
+    
+    .circle span {
+        font-size: small;
+        height: calc(var(--radius) * 2.5);
+    }
+    .slider .list .item{
+    width: calc(var(--radius) * 3);
+    text-align: center;
+    transform: rotate(45deg);
+    transition: transform 1s;
+    }
+    .slider .list .item.active{
+        transform: rotate(0deg);
+    }
+    .slider .list .item img{
+        width: 50%;
+        filter: drop-shadow(0 0 20px #000);
+    }
+    .slider .list .item1 img{
+        width: 80%;
+        display: none;
+        filter: drop-shadow(0 0 20px #000);
+    }
+   
+    .slider .content{
+    position: absolute;
+    bottom: 20%;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    color: #eee;
+    width: max-content;
+}
+ .mobile-only-btn {
+    display: inline-block;
+  }
+   nav .explore-prompt{
+      display: none;
+    }
+    .a{
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      left: 32%;
+    }
+  a .a1{
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+
+  text-decoration: none;
+  font-size: 18px;
+  color: #0066cc;
+  padding: 8px 12px;
+  border-radius: 6px;
+  transition: all 0.3s ease;
+  font-weight: 500;
+}
+.a1 {
+  color: #0066cc;
+  transform: translateY(-2px);
+}
+
+.a1{
+  transition: transform 0.3s ease;
+}
+
+.a1:hover svg {
+  transform: scale(1.1);
+  stroke: #0066cc;
+}
+
+
+a.a1{
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+ bottom: 20px;
+  text-decoration: none;
+  font-size: 18px;
+  color: white;
+  padding: 8px 0;
+  font-weight: 500;
+  border-bottom: 1px dashed #999;
+  transition: all 0.3s ease;
+}
+
+.a1:hover {
+  color:#0066cc;
+  border-bottom-color: #0066cc;
+}
+  
+}
+
